@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسلامی ٹولز - تمام فیچرز</title>
+    <meta name="description" content="مفت اسلامی ٹولز - عمر کیلکولیٹر، زکوٰۃ کیلکولیٹر اور قبلہ ڈائریکشن">
+    
+    <!-- AdMob اسکرپٹ -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8894441711880316" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* عمومی سٹائل */
+        :root {
+            --primary: #2c5fa8;
+            --secondary: #f0c14b;
+            --dark: #1a237e;
+            --light: #f5f5f5;
+            --text: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ہیڈر */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* نیویگیشن */
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: var(--primary);
+        }
+        
+        /* ایڈ بنر */
+        .ad-banner {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* کیلکولیٹر سیکشنز */
+        .calculator-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calculator-section h2 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .calculator-section h2 i {
+            margin-left: 10px;
+        }
+        
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--dark);
+        }
+        
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        /* قبلہ کمپاس */
+        .compass {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            position: relative;
+            border: 10px solid #f5f5f5;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .compass-inner {
+            width: 100%;
+            height: 100%;
+            background-color: #f9f9f9;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .compass-needle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 4px;
+            background-color: red;
+            transform-origin: left center;
+            transform: translate(0, -50%) rotate(0deg);
+        }
+        
+        .compass-needle:after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -8px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid red;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        
+        .loading {
+            display: none;
+            margin: 1rem 0;
+        }
+        
+        /* فوٹر */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>اسلامی ٹولز - تمام فیچرز</h1>
+        <p>مختلف اسلامی حساب کتاب کے لیے آسان ٹولز</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">ہوم</a></li>
+            <li><a href="#age-calculator">عمر کیلکولیٹر</a></li>
+            <li><a href="#zakat-calculator">زکوٰۃ کیلکولیٹر</a></li>
+            <li><a href="#qibla-direction">قبلہ ڈائریکشن</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- کیلکولیٹرز کے درمیان ایڈ - یونٹ ID 3 -->
+        <div class="ad-banner">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-8894441711880316"
+                 data-ad-slot="7051102814"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- عمر کیلکولیٹر -->
+        <div id="age-calculator" class="calculator-section">
+            <h2><i class="fas fa-birthday-cake"></i> عمر کیلکولیٹر</h2>
+            <p>اپنی عمر اسلامی سال کے مطابق معلوم کریں</p>
+            
+            <div class="input-group">
+                <label for="birthdate">اپنی تاریخ پیدائش درج کریں:</label>
+                <input type="date" id="birthdate" required>
+            </div>
+            
+            <button onclick="calculateAge()">عمر معلوم کریں</button>
+            
+            <div id="age-result" class="result"></div>
+        </div>
+        
+        <!-- زکوٰۃ کیلکولیٹر -->
+        <div id="zakat-calculator" class="calculator-section">
+            <h2><i class="fas fa-hand-holding-usd"></i> زکوٰۃ کیلکولیٹر</h2>
+            <p>اپنی زکوٰۃ کی رقم کا حساب لگائیں</p>
+            
+            <div class="input-group">
+                <label for="currency">کرنسی:</label>
+                <select id="currency">
+                    <option value="pkr">پاکستانی روپے (PKR)</option>
+                    <option value="usd">امریکی ڈالر (USD)</option>
+                    <option value="sar">سعودی ریال (SAR)</option>
+                    <option value="aed">متحدہ عرب اماراتی درہم (AED)</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="wealth">اپنی کل دولت (نقدی، سونا، چاندی، کاروبار):</label>
+                <input type="number" id="wealth" placeholder="رقم درج کریں" required>
+                <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                    نصاب: سونے کے حساب سے 87.48 گرام (7.5 تولہ) یا چاندی کے حساب سے 612.36 گرام (52.5 تولہ)
+                </p>
+            </div>
+            
+            <button onclick="calculateZakat()">زکوٰۃ معلوم کریں</button>
+            
+            <div id="zakat-result" class="result"></div>
+        </div>
+        
+        <!-- کیلکولیٹرز کے درمیان دوسرا ایڈ - یونٹ ID 4 -->
+        <div class="ad-banner">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-8894441711880316"
+                 data-ad-slot="1677171411"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- قبلہ ڈائریکشن -->
+        <div id="qibla-direction" class="calculator-section">
+            <h2><i class="fas fa-compass"></i> قبلہ ڈائریکشن</h2>
+            <p>اپنی موجودہ پوزیشن سے قبلہ کی سمت دریافت کریں</p>
+            
+            <button onclick="findQibla()"><i class="fas fa-compass"></i> قبلہ کی سمت معلوم کریں</button>
+            
+            <div class="loading" id="loading">
+                <i class="fas fa-spinner fa-spin"></i> لوڈ ہو رہا ہے...
+            </div>
+            
+            <div class="compass">
+                <div class="compass-inner">
+                    <div class="compass-needle" id="compass-needle"></div>
+                </div>
+            </div>
+            
+            <div id="qibla-result" class="result"></div>
+            
+            <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                نوٹ: درست نتائج کے لیے براہ کرم اپنے ڈیوائس میں لوکیشن کی سروس آن کریں
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© <span id="current-year"></span> اسلامی ٹولز | تمام حقوق محفوظ ہیں</p>
+    </footer>
+    
+    <script>
+        // موجودہ سال ڈسپلے کریں
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // عمر کیلکولیٹر
+        function calculateAge() {
+            const birthdate = document.getElementById('birthdate').value;
+            if (!birthdate) {
+                alert('براہ کرم اپنی تاریخ پیدائش درج کریں');
+                return;
+            }
+            
+            const birthDate = new Date(birthdate);
+            const today = new Date();
+            
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            const resultDiv = document.getElementById('age-result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <p>آپ کی عمر: <strong>${age} سال</strong></p>
+                <p>اسلامی عمر: <strong>${age + 1} سال</strong> (ہجری سال کے حساب سے)</p>
+            `;
+        }
+        
+        // زکوٰۃ کیلکولیٹر
+        function calculateZakat() {
+            const currency = document.getElementById('currency').value;
+            const wealth = parseFloat(document.getElementById('wealth').value);
+            
+            if (!wealth || isNaN(wealth)) {
+                alert('براہ کرم اپنی دولت کی صحیح رقم درج کریں');
+                return;
+            }
+            
+            // نصاب کی قیمت (سونے کے حساب سے)
+            const nisabValues = {
+                'pkr': 200000,  // مثال کے طور پر (حقیقی قیمت چیک کریں)
+                'usd': 700,
+                'sar': 2600,
+                'aed': 2500
+            };
+            
+            const nisab = nisabValues[currency];
+            const resultDiv = document.getElementById('zakat-result');
+            resultDiv.style.display = 'block';
+            
+            if (wealth >= nisab) {
+                const zakat = (wealth * 0.025).toFixed(2);
+                resultDiv.innerHTML = `
+                    <p>آپ پر زکوٰۃ واجب ہے!</p>
+                    <p>زکوٰۃ کی رقم: <strong>${zakat} ${currency.toUpperCase()}</strong></p>
+                    <p>یہ حساب 2.5% کی شرح سے کیا گیا ہے</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <p>آپ کی دولت نصاب سے کم ہے</p>
+                    <p>فی الحال آپ پر زکوٰۃ واجب نہیں</p>
+                    <p>نصاب: ${nisab} ${currency.toUpperCase()}</p>
+                `;
+            }
+        }
+        
+        // قبلہ ڈائریکشن
+        function findQibla() {
+            const loading = document.getElementById('loading');
+            const resultDiv = document.getElementById('qibla-result');
+            const compassNeedle = document.getElementById('compass-needle');
+            
+            loading.style.display = 'block';
+            resultDiv.style.display = 'none';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const lat = position.coords.latitude;
+                        const long = position.coords.longitude;
+                        
+                        // قبلہ کی سمت کا حساب (مکہ معظمہ کی طرف)
+                        const qiblaAngle = calculateQiblaAngle(lat, long);
+                        
+                        compassNeedle.style.transform = `translate(0, -50%) rotate(${qiblaAngle}deg)`;
+                        
+                        resultDiv.innerHTML = `
+                            <p>آپ کی موجودہ پوزیشن:</p>
+                            <p>عرض البلد: ${lat.toFixed(4)}°</p>
+                            <p>طول البلد: ${long.toFixed(4)}°</p>
+                            <p>قبلہ کی سمت: ${qiblaAngle.toFixed(1)}° شمال سے</p>
+                        `;
+                        
+                        resultDiv.style.display = 'block';
+                        loading.style.display = 'none';
+                    },
+                    error => {
+                        loading.style.display = 'none';
+                        alert('لوکیشن تک رسائی میں مسئلہ پیش آیا۔ براہ کرم لوکیشن کی اجازت دیں یا بعد میں کوشش کریں۔');
+                        console.error(error);
+                    }
+                );
+            } else {
+                loading.style.display = 'none';
+                alert('آپ کا براؤزر جیو لوکیشن کو سپورٹ نہیں کرتا');
+            }
+        }
+        
+        function calculateQiblaAngle(lat, long) {
+            // مکہ معظمہ کے کوآرڈینیٹس
+            const meccaLat = 21.3891;
+            const meccaLong = 39.8579;
+            
+            // ریاضیاتی فارمولہ
+            const phiK = meccaLat * Math.PI / 180.0;
+            const lambdaK = meccaLong * Math.PI / 180.0;
+            const phi = lat * Math.PI / 180.0;
+            const lambda = long * Math.PI / 180.0;
+            
+            const term1 = Math.sin(lambdaK - lambda);
+            const term2 = Math.cos(phi) * Math.tan(phiK);
+            const term3 = Math.sin(phi) * Math.cos(lambdaK - lambda);
+            
+            let qiblaAngle = Math.atan2(term1, term2 - term3) * 180.0 / Math.PI;
+            
+            // اینگل کو 0-360 ڈگری کی رینج میں لانا
+            if (qiblaAngle < 0) {
+                qiblaAngle += 360;
+            }
+            
+            return qiblaAngle;
+        }
+        
+        // ایڈز کو خودکار لوڈ کریں
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+  </html>
