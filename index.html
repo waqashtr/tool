@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسلامی ٹولز - عمر، زکوٰۃ اور قبلہ کیلکولیٹر</title>
+    <meta name="description" content="مفت اسلامی ٹولز - عمر کیلکولیٹر، زکوٰۃ کیلکولیٹر اور قبلہ ڈائریکشن">
+    
+    <!-- AdMob اسکرپٹ -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8894441711880316" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* عمومی سٹائل */
+        :root {
+            --primary: #2c5fa8;
+            --secondary: #f0c14b;
+            --dark: #1a237e;
+            --light: #f5f5f5;
+            --text: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* ہیڈر */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* نیویگیشن */
+        nav {
+            background-color: var(--dark);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: var(--primary);
+        }
+        
+        /* ایڈ بنر */
+        .ad-banner {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ہوم پیج کا مواد */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tool-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .tool-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* فوٹر */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>اسلامی ٹولز</h1>
+        <p>مختلف اسلامی حساب کتاب کے لیے آسان ٹولز</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">ہوم</a></li>
+            <li><a href="features.html">تمام ٹولز</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- اوپری ایڈ بنر - یونٹ ID 1 -->
+        <div class="ad-banner">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-8894441711880316"
+                 data-ad-slot="8856823282"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card" onclick="location.href='features.html#age-calculator'">
+                <i class="fas fa-birthday-cake"></i>
+                <h2>عمر کیلکولیٹر</h2>
+                <p>اپنی عمر اسلامی سال کے مطابق معلوم کریں</p>
+            </div>
+            
+            <div class="tool-card" onclick="location.href='features.html#zakat-calculator'">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h2>زکوٰۃ کیلکولیٹر</h2>
+                <p>اپنی زکوٰۃ کی رقم کا حساب لگائیں</p>
+            </div>
+            
+            <div class="tool-card" onclick="location.href='features.html#qibla-direction'">
+                <i class="fas fa-compass"></i>
+                <h2>قبلہ ڈائریکشن</h2>
+                <p>اپنی موجودہ پوزیشن سے قبلہ کی سمت دریافت کریں</p>
+            </div>
+        </div>
+        
+        <!-- نچلا ایڈ بنر - یونٹ ID 2 -->
+        <div class="ad-banner" style="margin-top: 2rem;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-app-pub-8894441711880316"
+                 data-ad-slot="4082174600"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© <span id="current-year"></span> اسلامی ٹولز | تمام حقوق محفوظ ہیں</p>
+    </footer>
+    
+    <script>
+        // موجودہ سال ڈسپلے کریں
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // ایڈز کو خودکار لوڈ کریں
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
